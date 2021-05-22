@@ -37,7 +37,7 @@ function TodoList() {
 
   return (
     <div>
-      <h3>오늘의 할 일은?🎵</h3>
+      <h3 className="todo_title">오늘의 할 일은?🎵</h3>
       <TodoForm onSubmit={addTodo}></TodoForm>
       <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} editTodo={editTodo}></Todo>
     </div>
