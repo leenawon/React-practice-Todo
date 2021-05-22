@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 function TodoForm(props) {
   const [input, setInput] = useState('');
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus()
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,7 +24,7 @@ function TodoForm(props) {
   return (
     <div>
       <form className="todo_form" onSubmit={submitHandler}>
-        <input type="text" className="todo_input" placeholder="📌할 일을 입력해주세요" value={input} name="text" onChange={changeHandler}></input>
+        <input type="text" className="todo_input" placeholder="📌할 일을 입력해주세요" value={input} name="text" onChange={changeHandler} ref={inputRef}></input>
         <button className="todo_button">추가</button>
       </form>
     </div>
